@@ -34,9 +34,8 @@ module.exports = {
     loaders: [
       {
         loaders: ['react-hot', 'babel-loader'],
-        include: [
-          path.resolve(__dirname, "src"),
-        ],
+
+        exclude: /(node_modules|bower_components)/,
         test: /\.js$/,
         plugins: ['transform-runtime'],
       },
@@ -44,8 +43,19 @@ module.exports = {
         test:   /\.css$/,
         loader: "style-loader!css-loader!postcss-loader"
       }
+      // {
+      //   test: /\.scss$/,
+      //   loaders: ["style", "css", "sass"]
+      //  }
+      // {
+      //   test: /\.scss$/,
+      //   loaders: ["style", "css", "sass"]
+      // }
     ]
   },
+  // sassLoader: {
+  //   includePaths: [path.resolve(__dirname, "./src")]
+  // },
   postcss: function () {
     return [autoprefixer, precss];
   }
